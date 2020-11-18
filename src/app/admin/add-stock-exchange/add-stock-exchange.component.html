@@ -1,0 +1,46 @@
+<div class="card shadow">
+    <p class="h4 card-header">Add New Stock Exchange</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <div class="row">  
+            <div class="col-sm-4"></div>  
+            <div class="col-sm-4">  
+                <div [hidden]="!submitted">  
+                   <h4>Exchange Added SuccessFully!</h4>  
+                   <button (click)="addExchangeForm()" class='btn btn-primary' style="margin: 2px;">Add More</button>  
+                   <button onclick="window.location.reload()" class='btn btn-primary' style="margin: 2px;"> Cancel</button>  
+                </div>        
+            </div>  
+            <div class="col-sm-4"></div>  
+          </div> 
+        <form [formGroup]="exchangesaveform" (ngSubmit)="saveExchange(saveExchange)">
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Stock Exchange Name</span>
+                </div>
+                <input type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">About SE</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" formControlName="about"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Address</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" formControlName="address"></textarea>
+            </div>
+            <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+                <div>
+                    <button (click)="backClicked()" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

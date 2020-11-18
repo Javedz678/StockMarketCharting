@@ -1,0 +1,69 @@
+<app-header></app-header>
+<section class="container">
+        <div class="row m-4">
+            <div class="col" style="height: 70vh;">
+                <form class="pt-4">
+                    <div class="card shadow">
+                        <p class="h4 card-header">Update User</p>
+                        <div class="card-body bg-light">
+    
+                            <p style="font-weight: 600;" class="card-text">Please Re-enter your login details:&nbsp;</p>
+                            <form [formGroup]="userupdateform" #updstu (ngSubmit)="updateUsr(updateUsr)">
+    
+                                <div class="input-group mt-3 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Username</span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="username"  id="username" #username/>
+                                </div>
+    
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >Password</span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="password" id="password" #password />
+                                </div>
+                                <button style="margin-left: 45%;" (click)="getUser(username,password)" class="btn btn-success">Check login details</button>
+                                <div [hidden]="check">  
+                                    <p style="margin-left: 45%;">no such user!</p>  
+                                </div> 
+                                <!-- begin modal -->
+                                <div class="modal-body" *ngFor="let user of gotUser" >  
+                                     
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">New Password</span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="newPassword"/>
+                                </div>
+    
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Re-enter New Password" />
+                                </div>
+    
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >Email</span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="email" [(ngModel)]="user.email"/>
+                                </div>
+    
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >Mobile</span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="mobileNumber" [(ngModel)]="user.mobile_number" />
+                                </div>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                
+                                </div>
+                                <!-- End modal -->
+                                
+                            </form>
+    
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>

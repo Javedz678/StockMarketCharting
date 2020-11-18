@@ -1,0 +1,156 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+        
+        <style>
+            
+
+       .w3-allerta {
+      font-family:  Sans-serif;
+      color: white;
+    }
+    .nav-link{
+        color: white !important;
+    }
+        </style>
+        <style>
+            </style>
+    </head>
+    <body>
+
+            
+<header class="shadow" *ngIf="role == 'ADMIN'">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="  background-color: black;box-shadow: 0 20px 20px -20px rgb(84, 152, 255);">
+        <div class="container">
+              
+            <div class="navbar-brand" href="#">
+                    
+                     <h1 class="w3-container  w3-center w3-allerta" >Stock Market Charting</h1>
+                            
+            </div>
+                    
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mx-auto">
+
+
+                    
+
+                   
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/admin/upload">Import Stock Data</a>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                   
+
+
+                    <div class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Company
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/admin/add-company">Add Company</a>
+                            <a class="dropdown-item" routerLink="/admin/update-company">Update Company</a>
+                        </div>
+                    </div>
+
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Exchange
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/admin/add-stock-exchange">Add Exchange</a>
+                            <a class="dropdown-item" routerLink="/admin/list-company">List Exchange</a>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/admin/update-ipo">Add IPO Details</a>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                            
+                </div>
+                <div class="navbar-nav">
+                    <div class="nav-item">
+                        <a class="nav-link d-flex" href="">
+                            <i class="fa fa-user mr-2 mt-1"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>   
+<!--If the user is not admin-->
+<header class="shadow" *ngIf="role == 'USER'">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="  background-color: black;box-shadow: 0 20px 20px -20px rgb(84, 152, 255);">
+        <div class="container">
+              
+            <div class="navbar-brand" href="#">
+                    
+                     <h1 class="w3-container  w3-center w3-allerta" >Stock Market Charting</h1>
+                            
+            </div>
+                    
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mx-auto">
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/manage-ipo">IPO</a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/compare-charts">Compare charts</a>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/compare-sectors">Compare sectors</a>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/compare-details">Compare details</a>
+                    </div>
+                    <!-- <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/update-user">update user details</a>
+                    </div> -->
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                </div>
+                <div class="navbar-nav">
+                    <div class="nav-item">
+                        <a class="nav-link d-flex" href="">
+                            <i class="fa fa-user mr-2 mt-1"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header> 
+
+</body>
+</html>

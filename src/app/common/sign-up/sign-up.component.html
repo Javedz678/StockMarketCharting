@@ -1,0 +1,87 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        
+        
+        <style>
+        
+        .w3-allerta {
+      font-family:  Sans-serif;
+    }
+        </style>
+        <style>
+            </style>
+    </head>
+    <body>
+
+ 
+<header class="shadow" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                    
+                     <h1 class="w3-container  w3-center w3-allerta" >Stock Market Charting</h1>     
+                    </a>
+        </div>
+    </nav>
+</header>
+<section class="container">
+    <div class="row m-4">
+        <div class="col" style="height: 70vh;">
+            <div class="row">  
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                    <div [hidden]="!submitted">  
+                       <h4>User Added SuccessFully!</h4>  
+                       <button (click)="addUserForm()" class='btn btn-primary' style="margin: 2px;">Add More</button>  
+                       <button onclick="window.location.reload()" class='btn btn-primary' style="margin: 2px;"> Cancel</button>  
+                    </div>        
+                </div>  
+                <div class="col-sm-4"></div>  
+              </div> 
+            <form class="pt-4"  [formGroup]="useraddform" (ngSubmit)="saveUser(saveUser)">
+                <div class="card shadow">
+                    <p class="h4 card-header">User Sign-Up Form</p>
+                    <div class="card-body bg-light">
+                        <p class="card-text">Details:&nbsp;</p>
+                            <div class="input-group mt-3 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Username</span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="username" />
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Password</span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="password" />
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Re-enter Password" />
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Email</span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="email"/>
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">Mobile</span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="mobile_number"/>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section></body></html>

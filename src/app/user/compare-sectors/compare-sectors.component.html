@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="card shadow">
+    <p class="h4 card-header">Compare sectors</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <form [formGroup]="comparesectorform" (ngSubmit)="compare(compare)">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02" formControlName="sector1">
+                    <option *ngFor="let sector of sectorArray" [value]="sector.sector_id"> {{sector.name}}</option>
+                </select>
+                <!-- <select class="custom-select" id="inputGroupSelect01" formControlName="sector1">
+                    <option selected>Choose Sector...</option>
+                    <option value="1">IT</option>
+                    <option value="2">Infotainment</option>
+                    <option value="3">Finance</option>
+                    <option value="4">Real-Estate</option>
+                </select> -->
+            </div>
+            <h6 style="text-align: center;">Compare to</h6>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02" formControlName="sector2">
+                    <option *ngFor="let sector of sectorArray" [value]="sector.sector_id"> {{sector.name}}</option>
+                </select>
+                <!-- <select class="custom-select" id="inputGroupSelect02" formControlName="sector2">
+                    <option selected>Choose Sector...</option>
+                    <option value="1">IT</option>
+                    <option value="2">Infotainment</option>
+                    <option value="3">Finance</option>
+                    <option value="4">Real-Estate</option>
+                </select> -->
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-success">Compare</button>
+                <button type="reset" class="btn btn-danger ml-2">Reset</button>
+            </div>
+        </form>
+        <p>
+            <a style="background-color: black;margin-left: 45%;margin-top: 5px;" class="btn btn-primary" data-toggle="collapse" href="#multiCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Show Results</a>
+        </p> 
+    </div>
+</div>
+<div class="collapse multi-collapse" id="multiCollapse">
+<div class="card shadow">
+    <p class="h4 card-header">Compare Sectors</p>
+    <div class="card-body bg-light">
+        
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr class="">
+                    
+                    <th scope="col">Sector Name</th>
+                    <th scope="col">About</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sector of sectorArray1">
+                  
+                  <td>{{ sector.name }}</td>
+                  <td>{{ sector.about }}</td>
+                  
+                </tr>
+              </tbody>
+        </table>
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr class="">
+                    
+                    <th scope="col">Sector Name</th>
+                    <th scope="col">About</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sector of sectorArray2">
+                  
+                  <td>{{ sector.name }}</td>
+                  <td>{{ sector.about }}</td>
+                  
+                </tr>
+              </tbody>
+        </table>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,71 @@
+<div class="card shadow">
+        <p class="h4 card-header">Update IPO</p>
+        <div class="card-body bg-light">
+            <p class="card-text h6">Please fill the details:</p>
+            <div class="row">  
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                    <div [hidden]="!submitted">  
+                       <h4>IPO Added SuccessFully!</h4>  
+                       <button (click)="addIpoForm()" class='btn btn-primary' style="margin: 2px;">Add More</button>  
+                       <button onclick="window.location.reload()" class='btn btn-primary' style="margin: 2px;"> Cancel</button>  
+                    </div>        
+                </div>  
+                <div class="col-sm-4"></div>  
+              </div> 
+            <form [formGroup]="iposaveform" (ngSubmit)="saveIpo(saveIpo)">
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Company Name</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="name"/>
+                </div>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="exchange">
+                    <option *ngFor="let exchange of exchangeArray" [value]="exchange.stockExchangeName"> {{exchange.stockExchangeName}}</option>
+                </select>
+             </div>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Price/Share in Rs.</span>
+                </div>
+                <input type="text" class="form-control" formControlName="pricePerShare">
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+             </div>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Total no. of Shares</span>
+                </div>
+                <input type="text" class="form-control" formControlName="noOfShares" />
+             </div>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Address</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea"formControlName="address"></textarea>
+             </div>
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Open date </span>
+                </div>
+                <input type="date" class="form-control" formControlName="date"/>
+             </div>
+             <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+
+                <div>
+                    <button (click)="backClicked()" class="btn btn-secondary">Back</button>
+                </div>
+             </div>
+            </form>
+
+        </div>
+    </div>

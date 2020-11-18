@@ -1,0 +1,150 @@
+<app-header></app-header>
+<div class="card shadow">
+    <p class="h4 card-header">Compare Details</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <form [formGroup]="comparedetailsform" (ngSubmit)="compare(compare)">
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Company Name</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="name1">
+                    <option *ngFor="let com of companyArray" [value]="com.name"> {{com.name}}</option>
+                </select>
+                <!-- <input type="text" class="form-control" formControlName="name1" /> -->
+            </div>
+            <div class="input-group mb-3">
+                <!-- <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="exchange1">
+                    <option *ngFor="let exchange of exchangeArray" [value]="exchange.stockExchangeName"> {{exchange.stockExchangeName}}</option>
+                </select> -->
+                <!-- <select class="custom-select" id="inputGroupSelect01" formControlName="exchange1">
+                    <option selected>Choose Stock Exchange...</option>
+                    <option value="1">BSE</option>
+                    <option value="2">NSE</option>
+                   
+                </select> -->
+            </div>
+            <!-- <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02" formControlName="sector1">
+                    <option selected>Choose Sector...</option>
+                    <option value="1">IT</option>
+                    <option value="2">Infotainment</option>
+                    <option value="3">Finance</option>
+                    <option value="4">Real-Estate</option>
+                </select>
+            </div> -->
+            <h6 style="text-align: center;">Compare To</h6>
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Company Name</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="name2">
+                    <option *ngFor="let com of companyArray" [value]="com.name"> {{com.name}}</option>
+                </select>
+                <!-- <input type="text" class="form-control" formControlName="name2" /> -->
+            </div>
+            <div class="input-group mb-3">
+                <!-- <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Exchange Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" formControlName="exchange2">
+                    <option *ngFor="let exchange of exchangeArray" [value]="exchange.stockExchangeName"> {{exchange.stockExchangeName}}</option>
+                </select> -->
+                <!-- <select class="custom-select" id="inputGroupSelect01" formControlName="exchange2">
+                    <option selected>Choose Stock Exchange...</option>
+                    <option value="1">BSE</option>
+                    <option value="2">NSE</option>
+                    
+                </select> -->
+            </div>
+            <!-- <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect02">Sector Options</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect02" formControlName="sector2">
+                    <option selected>Choose Sector...</option>
+                    <option value="1">IT</option>
+                    <option value="2">Infotainment</option>
+                    <option value="3">Finance</option>
+                    <option value="4">Real-Estate</option>
+                </select>
+            </div> -->
+            
+            <div style="text-align: center;">
+            
+            <div class="col">
+                <button type="submit" class="btn btn-success">Compare!</button>
+                <button type="reset" class="btn btn-danger ml-2">Reset</button>
+            </div>
+            </div>
+            <div class="d-flex no-gutters">
+                
+                
+            </div>
+        </form>
+        <p>
+            <a style="background-color: black;margin-left: 45%;margin-top: 5px;" class="btn btn-primary" data-toggle="collapse" href="#multiCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Show Results</a>
+        </p>  
+    </div>
+</div>
+<div class="collapse multi-collapse" id="multiCollapse">
+<div class="card shadow">
+    <p class="h4 card-header">Compare Details</p>
+    <div class="card-body bg-light">
+        
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr class="">
+                    
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Stock Exchange</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">TurnOver</th>
+                    <th scope="col">CEO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sector of companyArray1">
+                  
+                    <td>{{ sector.name }}</td>
+                    <td>{{ sector.exchange }}</td>
+                    <td>{{ sector.sector }}</td>
+                    <td>{{ sector.turnover }}</td>
+                    <td>{{ sector.ceo }}</td>
+                </tr>
+              </tbody>
+        </table>
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr class="">
+                    
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Stock Exchange</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">TurnOver</th>
+                    <th scope="col">CEO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sector of companyArray2">
+                  
+                  <td>{{ sector.name }}</td>
+                  <td>{{ sector.exchange }}</td>
+                  <td>{{ sector.sector }}</td>
+                  <td>{{ sector.turnover }}</td>
+                  <td>{{ sector.ceo }}</td>
+                </tr>
+              </tbody>
+        </table>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="card shadow">
+    <p class="h4 card-header">List of IPOs</p>
+    <div class="card-body bg-light">
+        
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr class="">
+                    
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Exchange</th>
+                    <th scope="col">Price Per share</th>
+                    <th scope="col">Total No share</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ipo of ipoArray">
+                  
+                  <td>{{ ipo.companyName }}</td>
+                  <td>{{ ipo.exchange }}</td>
+                  <td>{{ ipo.pricePershare }}</td>
+                  <td>{{ ipo.totalNoshare }}</td>
+                  <td>{{ ipo.date }}</td>
+                  <td>{{ ipo.address }}</td>
+                </tr>
+              </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,208 @@
+<div class="card shadow">
+<div class="panel panel-default">  
+    <div class="panel-heading">  
+        <h1 style="text-align: center">List of Companies</h1><br>  
+        <div class="row" [hidden]="!deleteMessage">  
+               
+                  <div class="col-sm-4"></div>  
+                  <div class="col-sm-4">  
+                          <div class="alert alert-info alert-dismissible">  
+                                  <button type="button" class="close" data-dismiss="alert">×</button>  
+                                  <strong>Company Data Deleted</strong>  
+                          </div>  
+                  </div>  
+                  <div class="col-sm-4"></div>  
+          </div>             
+      </div>  
+      <div class="panel-body">  
+        <table  class="table table-hover table-sm"  >  
+            <thead class="thead-light">  
+                <tr>  
+                    <th>Company Name</th>  
+                    <th>Turnover</th>  
+                    <th>CEO</th>  
+                    <th>Director</th>  
+                    <th>About</th>  
+                    <th>Exchange</th>  
+                    <th>Sector</th>  
+                    <th>Actions</th>  
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr *ngFor="let company of companies ">  
+                     
+                    <td>{{company.name}}</td>  
+                    <td>{{company.turnover}}</td>  
+                    <td>{{company.ceo}}</td>  
+                    <td>{{company.director}}</td>  
+                    <td>{{company.about}}</td>  
+                    <td>{{company.exchange}}</td>  
+                    <td>{{company.sector}}</td>  
+                    <td><button style="margin: 4px;" (click)="deleteCompany(company.name)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+                      <button style="margin: 4px;" (click)="updateCompany(company.name)" class='btn btn-info'  
+                      data-toggle="modal" data-target="#myModal">Update</button>  
+                    </td>  
+                  </tr>   
+            </tbody><br>  
+        </table>  
+    </div>  
+  </div>   
+<div class="modal" id="myModal">  
+    <div class="modal-dialog">  
+      <div class="modal-content">  
+            <form [formGroup]="companyupdateform" #updstu (ngSubmit)="updateCom(updateCom)">  
+        <!-- Modal Header -->  
+        <div class="modal-header">  
+          <h4 class="modal-title" style="text-align: center">Update Comapny</h4>  
+            
+        </div>  
+          
+        <!-- Modal body -->  
+        <div class="modal-body" *ngFor="let company of companylist " >  
+            <div [hidden]="isupdated">  
+                        <div class="form-group">  
+                            <label for="name">Company Name</label>  
+                            <input type="text" class="form-control" disabled  formControlName="name" [(ngModel)]="company.name"  >  
+                        </div>  
+                  
+                        <div class="form-group">  
+                            <label for="name">TurnOver</label>  
+                            <input type="text" class="form-control" formControlName="turnover" [(ngModel)]="company.turnover">  
+                        </div>  
+
+                        <div class="form-group">  
+                            <label for="name">CEO</label>  
+                            <input type="text" class="form-control" formControlName="ceo" [(ngModel)]="company.ceo">  
+                        </div>  
+
+                        <div class="form-group">  
+                            <label for="name">Director</label>  
+                            <input type="text" class="form-control" formControlName="director" [(ngModel)]="company.director">  
+                        </div>  
+
+
+                        <div class="form-group">  
+                            <label for="name">About</label>  
+                            <input type="text" class="form-control" formControlName="about" [(ngModel)]="company.about">  
+                        </div>  
+
+                        <div class="form-group">  
+                            <label for="name">Exchange</label>  
+                            <input type="text" class="form-control" disabled formControlName="exchange" [(ngModel)]="company.exchange">  
+                        </div>  
+
+
+                        <div class="form-group">  
+                            <label for="name">Sectors</label>  
+                            <input type="text" class="form-control" disabled formControlName="sector" [(ngModel)]="company.sector">  
+                        </div>  
+                       
+                  
+                        <!-- <div class="form-group">  
+                            <label for="name">Exchange</label>  
+                              <select class="form-control" formControlName="exchange" required >                                     
+                                <option value="BSE"     [selected]="'BSE' == company.exchange" >BSE</option>
+                                <option value="NSE"     [selected]="'NSE' == company.exchange">NSE</option>
+                              </select>                                 
+                        </div>    -->
+                         <!--
+                        <div class="form-group">  
+                            <label for="name">Sector</label>  
+                              <select class="form-control" formControlName="sector" required >                                     
+                                <option value="IT"  [selected]="'IT' == company.sector">IT</option>
+                                <option value="Infotainment" [selected]="'Infotainment' == company.sector">Infotainment</option>
+                                <option value="Finance" [selected]="'Finance' == company.sector">Finance</option>
+                                <option value="Real-Estate" [selected]="'Real-Estate' == company.sector" >Real-Estate</option>
+                              </select>                                 
+                        </div>                    -->
+              </div>    
+              <div [hidden]="!isupdated">  
+                  <h4>Cpmpany Details Updated!</h4>  
+              </div>          
+        </div>
+        <!-- Modal footer -->  
+        <div class="modal-footer" >  
+          <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>  
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>  
+        </div>  
+    </form>  
+      </div>  
+    </div>
+</div>
+</div>
+
+<!-- Original stuff Starts-->
+            <!-- <div class="card shadow">
+                <p class="h4 card-header">Update Company</p>
+                <div class="card-body bg-light">
+                    <p class="card-text h6">Please change the details to be updated:</p>
+                    <form [formGroup]="companyupdateform" (ngSubmit)="updateCompany(updateCompany)" >
+                        <div class="input-group mt-3 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Company Name</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="name" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> Turnover in Rs.</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="turnover">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="input-group mt-3 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">CEO</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="CEO" />
+                        </div>
+                        <div class="input-group mt-3 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Board of Director</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="director" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">About Company</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea" formControlName="about"></textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01" formControlName="exchange">
+                                <option selected>Choose Stock Exchange...</option>
+                                <option value="BSE">BSE</option>
+                                <option value="NSE">NSE</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect02" formControlName="sector">
+                                <option selected>Choose Sector...</option>
+                                <option value="1">IT</option>
+                                <option value="2">Infotainment</option>
+                                <option value="3">Finance</option>
+                                <option value="4">Real-Estate</option>
+                            </select>
+                        </div>
+                        <div class="d-flex no-gutters">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                            </div>
+                            <div>
+                                <button (click)="backClicked()" class="btn btn-secondary">Back</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            Original stuff ends -->
